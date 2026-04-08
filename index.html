@@ -1,0 +1,1495 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Cannabis & Neurologia — Dr. Alexandre Kaup · Einstein</title>
+<link href="https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,300;0,400;0,600;0,700;0,800;0,900;1,400;1,700&family=Nunito+Sans:wght@300;400;600;700&display=swap" rel="stylesheet">
+<style>
+:root {
+  --teal:   #1a5c52;
+  --teal2:  #2a8a6e;
+  --teal3:  #d6ede9;
+  --orange: #c84b1e;
+  --orange2:#f06030;
+  --orange3:#fde8df;
+  --blue:   #3a5fa0;
+  --blue2:  #5578c0;
+  --blue3:  #dde5f5;
+  --white:  #ffffff;
+  --off:    #f5f7f6;
+  --text:   #111818;
+  --muted:  #4a5a58;
+  --border: #dde8e5;
+  --shadow: rgba(26,92,82,0.12);
+}
+
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth;font-size:16px}
+
+body{
+  background:var(--white);
+  color:var(--text);
+  font-family:'Nunito Sans',sans-serif;
+  font-weight:400;
+  line-height:1.7;
+  overflow-x:hidden;
+  -webkit-font-smoothing:antialiased;
+}
+
+/* ── NAV ── */
+nav{
+  position:fixed;top:0;left:0;right:0;z-index:200;
+  background:rgba(255,255,255,0.96);
+  backdrop-filter:blur(12px);
+  -webkit-backdrop-filter:blur(12px);
+  border-bottom:3px solid var(--teal);
+  height:60px;
+  display:flex;align-items:center;justify-content:space-between;
+  padding:0 24px;
+  transition:box-shadow .3s;
+}
+nav.scrolled{box-shadow:0 4px 24px var(--shadow)}
+
+.nav-logo{display:flex;align-items:center;gap:10px}
+.nav-squares{display:grid;grid-template-columns:1fr 1fr;gap:3px;width:22px}
+.nav-squares span{display:block;height:9px;border-radius:2px}
+.ns1{background:var(--teal)}
+.ns2{background:var(--orange)}
+.ns3{background:var(--blue)}
+.ns4{background:var(--teal2)}
+.nav-text{font-family:'Nunito',sans-serif;font-weight:800;font-size:.85rem;color:var(--teal);line-height:1.1}
+.nav-text small{display:block;font-weight:400;font-size:.65rem;color:var(--muted)}
+.nav-btn{
+  background:var(--orange);color:#fff;
+  font-family:'Nunito',sans-serif;font-weight:800;font-size:.75rem;
+  letter-spacing:.06em;text-transform:uppercase;text-decoration:none;
+  padding:9px 22px;border-radius:4px;
+  transition:background .2s,transform .15s;white-space:nowrap;
+}
+.nav-btn:hover{background:#a83a10;transform:translateY(-1px)}
+
+/* ── HERO PARALLAX ── */
+.hero{
+  position:relative;min-height:100vh;
+  display:flex;align-items:center;
+  overflow:hidden;padding:80px 0 0;
+}
+
+.hero-parallax-bg{
+  position:absolute;inset:0;z-index:0;
+  background:linear-gradient(135deg, #0d3830 0%, #1a5c52 40%, #1e6b60 60%, #0f3028 100%);
+  will-change:transform;
+}
+
+/* Grade geométrica sutil no fundo */
+.hero-parallax-bg::before{
+  content:'';position:absolute;inset:0;
+  background-image:
+    linear-gradient(rgba(255,255,255,0.04) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255,255,255,0.04) 1px, transparent 1px);
+  background-size:48px 48px;
+}
+
+/* Formas geométricas flutuantes */
+.hero-shape{position:absolute;border-radius:3px;opacity:.12;will-change:transform}
+.hs1{width:180px;height:180px;background:var(--orange);top:10%;right:8%;transform:rotate(20deg)}
+.hs2{width:100px;height:100px;background:var(--blue2);bottom:18%;right:18%;transform:rotate(-10deg)}
+.hs3{width:60px;height:60px;background:white;top:30%;right:25%;transform:rotate(35deg)}
+.hs4{width:300px;height:300px;background:var(--teal2);top:-60px;right:-60px;border-radius:50%;opacity:.08}
+
+.hero-inner{
+  position:relative;z-index:2;
+  width:100%;max-width:900px;
+  margin:0 auto;
+  padding:0 24px 80px;
+}
+
+.hero-badge{
+  display:inline-flex;align-items:center;gap:8px;
+  background:rgba(255,255,255,0.12);
+  border:1.5px solid rgba(255,255,255,0.25);
+  backdrop-filter:blur(8px);
+  padding:7px 18px;border-radius:50px;
+  font-family:'Nunito',sans-serif;font-weight:700;font-size:.72rem;
+  color:rgba(255,255,255,.9);letter-spacing:.1em;text-transform:uppercase;
+  margin-bottom:28px;
+}
+.hero-badge::before{
+  content:'';width:7px;height:7px;border-radius:50%;
+  background:#7fffd4;animation:pulse-dot 2s infinite;
+}
+@keyframes pulse-dot{0%,100%{opacity:1;transform:scale(1)}50%{opacity:.4;transform:scale(.7)}}
+
+.hero-title{
+  font-family:'Nunito',sans-serif;
+  font-size:clamp(3rem,9vw,6.5rem);
+  font-weight:900;
+  line-height:1;
+  color:#fff;
+  letter-spacing:-.03em;
+  margin-bottom:12px;
+}
+
+.hero-title-accent{
+  color:var(--orange2);
+  display:block;
+}
+
+.hero-sub{
+  font-family:'Nunito',sans-serif;
+  font-size:clamp(1.1rem,3vw,1.6rem);
+  font-weight:400;
+  color:rgba(255,255,255,.75);
+  margin-bottom:32px;
+  line-height:1.4;
+}
+
+.hero-desc{
+  font-size:clamp(.9rem,2vw,1.05rem);
+  color:rgba(255,255,255,.65);
+  max-width:580px;
+  margin-bottom:44px;
+  line-height:1.85;
+  font-weight:300;
+}
+
+.hero-ctas{display:flex;align-items:center;gap:16px;flex-wrap:wrap}
+
+.btn-hero{
+  display:inline-flex;align-items:center;gap:10px;
+  background:var(--orange);color:#fff;
+  font-family:'Nunito',sans-serif;font-weight:800;font-size:.95rem;
+  letter-spacing:.04em;text-transform:uppercase;text-decoration:none;
+  padding:18px 40px;border-radius:6px;
+  transition:all .25s;
+  box-shadow:0 6px 28px rgba(200,75,30,.4);
+}
+.btn-hero:hover{background:#a83a10;transform:translateY(-2px);box-shadow:0 10px 36px rgba(200,75,30,.5)}
+.btn-hero svg{width:18px;height:18px;flex-shrink:0}
+
+.btn-ghost{
+  display:inline-flex;align-items:center;gap:8px;
+  background:transparent;color:rgba(255,255,255,.85);
+  font-family:'Nunito',sans-serif;font-weight:600;font-size:.85rem;
+  text-decoration:none;padding:16px 24px;
+  border:1.5px solid rgba(255,255,255,.3);border-radius:6px;
+  transition:all .2s;
+}
+.btn-ghost:hover{background:rgba(255,255,255,.1);border-color:rgba(255,255,255,.6)}
+
+/* Seta scroll */
+.scroll-hint{
+  position:absolute;bottom:32px;left:50%;transform:translateX(-50%);
+  display:flex;flex-direction:column;align-items:center;gap:6px;
+  color:rgba(255,255,255,.4);font-size:.68rem;letter-spacing:.12em;text-transform:uppercase;
+  animation:bounce-y 2.5s ease-in-out infinite;
+}
+@keyframes bounce-y{0%,100%{transform:translateX(-50%) translateY(0)}50%{transform:translateX(-50%) translateY(8px)}}
+.scroll-hint svg{width:20px;opacity:.5}
+
+/* ── VIDEO SECTION ── */
+.video-section{
+  background:var(--off);
+  padding:80px 24px;
+  position:relative;overflow:hidden;
+}
+
+.video-section::before{
+  content:'';position:absolute;top:0;left:0;right:0;height:5px;
+  background:linear-gradient(90deg,var(--teal),var(--orange),var(--blue),var(--teal2));
+}
+
+.vs-inner{max-width:900px;margin:0 auto;}
+
+.section-eyebrow{
+  font-family:'Nunito',sans-serif;font-weight:800;
+  font-size:.72rem;letter-spacing:.18em;text-transform:uppercase;
+  margin-bottom:10px;
+}
+.eyebrow-teal{color:var(--teal)}
+.eyebrow-orange{color:var(--orange)}
+.eyebrow-blue{color:var(--blue)}
+
+.section-title-big{
+  font-family:'Nunito',sans-serif;
+  font-size:clamp(2.2rem,6vw,4rem);
+  font-weight:900;
+  line-height:1.05;
+  letter-spacing:-.025em;
+  margin-bottom:12px;
+}
+.title-teal{color:var(--teal)}
+.title-orange{color:var(--orange)}
+.title-blue{color:var(--blue)}
+
+.section-lead{
+  font-size:clamp(.9rem,2vw,1.05rem);
+  color:var(--muted);
+  max-width:600px;
+  margin-bottom:40px;
+  line-height:1.8;
+  font-weight:300;
+}
+
+/* Video placeholder */
+.video-wrap{
+  position:relative;border-radius:12px;overflow:hidden;
+  background:var(--teal);
+  aspect-ratio:16/9;
+  box-shadow:0 16px 64px rgba(26,92,82,.22);
+  cursor:pointer;
+}
+
+.video-thumb{
+  width:100%;height:100%;object-fit:cover;
+  display:block;
+  /* placeholder: gradiente até ter foto real */
+  background:linear-gradient(135deg,#0d3830 0%,#1a5c52 60%,#2a8a6e 100%);
+}
+
+/* Overlay escuro com play */
+.video-overlay{
+  position:absolute;inset:0;
+  display:flex;flex-direction:column;align-items:center;justify-content:center;
+  background:rgba(10,30,26,.45);
+  transition:background .3s;
+}
+.video-wrap:hover .video-overlay{background:rgba(10,30,26,.3)}
+
+.play-btn{
+  width:76px;height:76px;border-radius:50%;
+  background:var(--orange);
+  display:flex;align-items:center;justify-content:center;
+  box-shadow:0 0 0 12px rgba(200,75,30,.2), 0 8px 32px rgba(200,75,30,.4);
+  transition:transform .25s,box-shadow .25s;
+  margin-bottom:16px;
+}
+.video-wrap:hover .play-btn{transform:scale(1.08);box-shadow:0 0 0 16px rgba(200,75,30,.2),0 12px 40px rgba(200,75,30,.5)}
+.play-btn svg{width:28px;height:28px;fill:white;margin-left:4px}
+
+.video-caption{
+  color:rgba(255,255,255,.9);
+  font-family:'Nunito',sans-serif;font-weight:700;font-size:.85rem;
+  letter-spacing:.04em;text-transform:uppercase;
+}
+
+/* Aula demo label */
+.demo-label{
+  display:inline-flex;align-items:center;gap:6px;
+  background:var(--orange3);
+  border-left:3px solid var(--orange);
+  padding:6px 14px;border-radius:0 4px 4px 0;
+  font-family:'Nunito',sans-serif;font-weight:700;font-size:.72rem;
+  color:var(--orange);letter-spacing:.08em;text-transform:uppercase;
+  margin-bottom:16px;
+}
+
+/* ── STATS BAND ── */
+.stats-band{
+  background:var(--teal);
+  padding:40px 24px;
+}
+.stats-grid{
+  max-width:900px;margin:0 auto;
+  display:grid;grid-template-columns:repeat(4,1fr);
+  gap:0;
+}
+.stat-item{
+  text-align:center;padding:12px 8px;
+  border-right:1px solid rgba(255,255,255,.15);
+}
+.stat-item:last-child{border-right:none}
+.stat-n{
+  font-family:'Nunito',sans-serif;font-size:clamp(2rem,5vw,3rem);
+  font-weight:900;color:#fff;line-height:1;margin-bottom:4px;
+}
+.stat-n span{font-size:70%;color:rgba(255,255,255,.7)}
+.stat-l{
+  font-size:.68rem;font-weight:700;
+  color:rgba(255,255,255,.65);letter-spacing:.1em;text-transform:uppercase;
+}
+
+/* ── PROFESSOR ── */
+.prof-section{
+  background:var(--white);
+  padding:80px 24px;
+  position:relative;overflow:hidden;
+}
+
+.prof-section::after{
+  content:'';position:absolute;
+  top:0;bottom:0;right:0;width:40%;
+  background:linear-gradient(to left,var(--teal3),transparent);
+  pointer-events:none;z-index:0;
+}
+
+.prof-inner{
+  max-width:900px;margin:0 auto;position:relative;z-index:1;
+}
+
+.prof-grid{
+  display:grid;grid-template-columns:1fr 1fr;
+  gap:48px;align-items:center;
+  margin-top:48px;
+}
+
+/* Foto do doutor — placeholder com ícone elegante */
+.prof-photo-wrap{
+  position:relative;
+}
+
+.prof-photo{
+  width:100%;aspect-ratio:3/4;
+  border-radius:12px;
+  background:linear-gradient(160deg,#0d3830 0%,#1a5c52 60%,#2a8a6e 100%);
+  display:flex;flex-direction:column;align-items:center;justify-content:flex-end;
+  overflow:hidden;
+  box-shadow:0 20px 64px rgba(26,92,82,.25);
+  position:relative;
+}
+
+/* silhueta placeholder */
+.prof-photo::before{
+  content:'';
+  position:absolute;
+  bottom:0;left:50%;transform:translateX(-50%);
+  width:70%;aspect-ratio:1/1.4;
+  background:rgba(255,255,255,.08);
+  border-radius:200px 200px 0 0;
+}
+
+.prof-photo-label{
+  position:relative;z-index:1;
+  background:rgba(200,75,30,.9);
+  width:100%;padding:16px 20px;
+  text-align:center;
+}
+.prof-photo-label strong{
+  display:block;font-family:'Nunito',sans-serif;font-weight:800;
+  font-size:1rem;color:white;
+}
+.prof-photo-label span{
+  font-size:.72rem;color:rgba(255,255,255,.8);font-weight:300;
+}
+
+/* Badge Einstein */
+.einstein-badge{
+  position:absolute;top:16px;right:16px;
+  background:white;border-radius:8px;
+  padding:8px 14px;
+  box-shadow:0 4px 20px rgba(0,0,0,.15);
+  text-align:center;
+}
+.einstein-badge strong{
+  display:block;font-family:'Nunito',sans-serif;font-weight:800;
+  font-size:.7rem;color:var(--teal);letter-spacing:.05em;text-transform:uppercase;
+}
+.einstein-badge span{font-size:.62rem;color:var(--muted)}
+
+/* Foto placeholder note */
+.photo-hint{
+  position:absolute;top:50%;left:50%;transform:translate(-50%,-70%);
+  display:flex;flex-direction:column;align-items:center;gap:8px;
+  opacity:.3;
+}
+.photo-hint svg{width:56px;height:56px;fill:white}
+.photo-hint span{font-size:.7rem;color:white;text-align:center}
+
+.prof-info{}
+
+.prof-name-big{
+  font-family:'Nunito',sans-serif;font-weight:900;
+  font-size:clamp(1.8rem,4vw,2.8rem);
+  color:var(--teal);line-height:1.1;margin-bottom:4px;
+  letter-spacing:-.02em;
+}
+.prof-role{
+  font-size:.9rem;color:var(--orange);font-weight:700;
+  margin-bottom:24px;
+}
+
+.prof-creds{list-style:none;display:flex;flex-direction:column;gap:10px;margin-bottom:28px}
+.prof-creds li{
+  display:flex;gap:12px;font-size:.88rem;color:var(--muted);
+  line-height:1.5;align-items:flex-start;
+}
+.cred-sq{
+  width:10px;height:10px;border-radius:2px;flex-shrink:0;margin-top:5px;
+}
+.cs-teal{background:var(--teal)}
+.cs-orange{background:var(--orange)}
+.cs-blue{background:var(--blue)}
+
+.prof-quote{
+  border-left:4px solid var(--orange);
+  padding:16px 20px;
+  background:var(--orange3);
+  border-radius:0 8px 8px 0;
+  margin-top:24px;
+}
+.prof-quote p{
+  font-family:'Nunito',sans-serif;font-style:italic;font-weight:600;
+  font-size:.95rem;color:var(--teal);line-height:1.6;margin-bottom:6px;
+}
+.prof-quote cite{font-size:.72rem;color:var(--orange);font-weight:700;font-style:normal}
+
+/* ── GALLERY STRIP ── */
+.gallery-strip{
+  background:var(--teal);
+  padding:24px;
+  display:flex;gap:12px;overflow-x:auto;
+  scrollbar-width:none;
+}
+.gallery-strip::-webkit-scrollbar{display:none}
+
+.gallery-item{
+  flex-shrink:0;
+  width:200px;height:140px;border-radius:8px;
+  overflow:hidden;position:relative;
+  background:rgba(255,255,255,.08);
+  display:flex;align-items:center;justify-content:center;
+}
+
+.gallery-item-inner{
+  text-align:center;color:rgba(255,255,255,.5);
+  font-size:.7rem;font-weight:600;letter-spacing:.06em;text-transform:uppercase;
+}
+.gallery-item-inner svg{width:28px;height:28px;opacity:.5;display:block;margin:0 auto 6px}
+
+/* Pill de label nas fotos */
+.gallery-pill{
+  position:absolute;bottom:8px;left:8px;right:8px;
+  background:rgba(10,30,26,.7);backdrop-filter:blur(4px);
+  border-radius:4px;padding:5px 10px;
+  font-size:.65rem;font-weight:700;color:rgba(255,255,255,.85);
+  letter-spacing:.05em;text-transform:uppercase;
+  text-align:center;
+}
+
+/* ── CURRICULUM ── */
+.curriculum-section{
+  background:var(--off);
+  padding:80px 24px;
+  position:relative;
+}
+
+.curriculum-section::before{
+  content:'';position:absolute;top:0;left:0;right:0;height:6px;
+  background:linear-gradient(90deg,var(--orange),var(--orange2));
+}
+
+.modules-wrap{
+  max-width:900px;margin:48px auto 0;
+  display:grid;grid-template-columns:1fr 1fr;gap:16px;
+}
+
+.mod-card{
+  background:var(--white);
+  border-radius:10px;overflow:hidden;
+  border:2px solid transparent;
+  transition:border-color .25s,transform .25s,box-shadow .25s;
+  box-shadow:0 2px 12px rgba(0,0,0,.05);
+}
+.mod-card:hover{
+  border-color:currentColor;
+  transform:translateY(-4px);
+  box-shadow:0 12px 36px rgba(0,0,0,.1);
+}
+.mod-card.c-teal{color:var(--teal)}
+.mod-card.c-orange{color:var(--orange)}
+.mod-card.c-blue{color:var(--blue)}
+.mod-card.c-teal2{color:var(--teal2)}
+
+.mod-head{
+  padding:16px 20px;
+  background:currentColor;
+  display:flex;align-items:center;justify-content:space-between;
+}
+.mod-num{
+  font-family:'Nunito',sans-serif;font-size:.62rem;font-weight:800;
+  color:rgba(255,255,255,.7);letter-spacing:.15em;text-transform:uppercase;
+}
+.mod-title{
+  font-family:'Nunito',sans-serif;font-size:.95rem;font-weight:800;
+  color:white;line-height:1.25;margin-top:4px;
+}
+
+.mod-badge{
+  background:rgba(255,255,255,.2);
+  border-radius:20px;padding:3px 10px;
+  font-size:.58rem;font-weight:700;color:white;
+  white-space:nowrap;letter-spacing:.06em;text-transform:uppercase;
+}
+
+.mod-body{padding:18px 20px}
+.mod-desc{font-size:.8rem;color:var(--muted);margin-bottom:12px;line-height:1.6;font-weight:300}
+
+.mod-topics{list-style:none;display:flex;flex-direction:column;gap:5px}
+.mod-topics li{
+  font-size:.78rem;color:var(--text);
+  display:flex;gap:8px;align-items:flex-start;
+}
+.mod-topics li::before{
+  content:'';width:7px;height:7px;
+  background:currentColor;border-radius:1px;
+  flex-shrink:0;margin-top:4px;opacity:.7;
+}
+
+/* ── AUDIÊNCIA ── */
+.audience-section{
+  background:var(--blue);
+  padding:80px 24px;
+  position:relative;overflow:hidden;
+}
+
+.audience-section::before{
+  content:'';position:absolute;
+  top:-100px;right:-100px;
+  width:400px;height:400px;border-radius:50%;
+  background:rgba(255,255,255,.04);
+}
+.audience-section::after{
+  content:'';position:absolute;
+  bottom:-80px;left:-60px;
+  width:280px;height:280px;border-radius:50%;
+  background:rgba(255,255,255,.03);
+}
+
+.aud-inner{max-width:900px;margin:0 auto;position:relative;z-index:1}
+
+.aud-eyebrow{color:rgba(255,255,255,.6)}
+.aud-title{color:white}
+.aud-lead{color:rgba(255,255,255,.65)}
+
+.aud-grid{
+  display:grid;grid-template-columns:repeat(3,1fr);
+  gap:16px;margin-top:40px;
+}
+
+.aud-card{
+  background:rgba(255,255,255,.08);
+  border:1.5px solid rgba(255,255,255,.15);
+  border-radius:10px;padding:28px 22px;
+  transition:background .25s,border-color .25s,transform .25s;
+  backdrop-filter:blur(4px);
+}
+.aud-card:hover{
+  background:rgba(255,255,255,.14);
+  border-color:rgba(255,255,255,.35);
+  transform:translateY(-4px);
+}
+
+.aud-icon{
+  width:44px;height:44px;border-radius:8px;
+  background:var(--orange);
+  display:flex;align-items:center;justify-content:center;
+  font-size:1.3rem;margin-bottom:16px;
+}
+
+.aud-card h3{
+  font-family:'Nunito',sans-serif;font-weight:800;font-size:1rem;
+  color:white;margin-bottom:8px;
+}
+.aud-card p{font-size:.82rem;color:rgba(255,255,255,.65);line-height:1.7;font-weight:300}
+
+/* ── DESTAQUES ── */
+.highlights-section{
+  background:var(--white);
+  padding:80px 24px;
+  position:relative;
+}
+
+.highlights-section::before{
+  content:'';position:absolute;top:0;left:0;right:0;height:6px;
+  background:linear-gradient(90deg,var(--blue),var(--teal),var(--teal2));
+}
+
+.hl-inner{max-width:900px;margin:0 auto}
+
+.hl-grid{
+  display:grid;grid-template-columns:1fr 1fr;
+  gap:16px;margin-top:40px;
+}
+
+.hl-card{
+  display:flex;gap:16px;
+  background:var(--off);
+  border:2px solid var(--border);
+  border-radius:10px;padding:24px 20px;
+  transition:border-color .2s,transform .2s,box-shadow .2s;
+}
+.hl-card:hover{
+  border-color:var(--teal);
+  transform:translateY(-3px);
+  box-shadow:0 8px 28px var(--shadow);
+}
+
+.hl-icon{
+  width:42px;height:42px;border-radius:8px;
+  display:flex;align-items:center;justify-content:center;
+  font-size:1.1rem;flex-shrink:0;
+}
+.hi-teal{background:var(--teal3)}
+.hi-orange{background:var(--orange3)}
+.hi-blue{background:var(--blue3)}
+
+.hl-card h4{
+  font-family:'Nunito',sans-serif;font-weight:800;
+  font-size:.92rem;color:var(--teal);margin-bottom:4px;
+}
+.hl-card p{font-size:.8rem;color:var(--muted);line-height:1.65;font-weight:300}
+
+/* ── PRICING ── */
+.pricing-section{
+  background:var(--off);
+  padding:80px 24px;
+  position:relative;overflow:hidden;
+}
+
+.pricing-section::before{
+  content:'';position:absolute;top:0;left:0;right:0;height:6px;
+  background:linear-gradient(90deg,var(--orange),var(--orange2));
+}
+
+.pricing-inner{max-width:900px;margin:0 auto}
+
+.pricing-grid{
+  display:grid;grid-template-columns:1fr 360px;
+  gap:48px;align-items:start;margin-top:48px;
+}
+
+.pricing-left h3{
+  font-family:'Nunito',sans-serif;font-weight:900;
+  font-size:clamp(1.5rem,3vw,2rem);
+  color:var(--teal);margin-bottom:14px;line-height:1.2;letter-spacing:-.02em;
+}
+.pricing-left p{
+  font-size:.9rem;color:var(--muted);line-height:1.8;
+  margin-bottom:24px;font-weight:300;
+}
+
+.inc-list{list-style:none;display:flex;flex-direction:column;gap:10px}
+.inc-list li{
+  display:flex;gap:12px;font-size:.85rem;color:var(--text);align-items:flex-start;
+}
+.inc-sq{
+  width:10px;height:10px;border-radius:2px;flex-shrink:0;margin-top:5px;
+}
+.inc-list li:nth-child(odd) .inc-sq{background:var(--teal)}
+.inc-list li:nth-child(even) .inc-sq{background:var(--orange)}
+
+.price-card{
+  background:var(--teal);
+  border-radius:14px;overflow:hidden;
+  box-shadow:0 20px 64px rgba(26,92,82,.3);
+  position:sticky;top:72px;
+}
+
+.price-top{padding:32px 28px 24px;text-align:center;border-bottom:1px solid rgba(255,255,255,.12)}
+.price-eyebrow{
+  font-size:.65rem;font-weight:800;letter-spacing:.18em;text-transform:uppercase;
+  color:rgba(255,255,255,.6);margin-bottom:20px;
+}
+.price-de{font-size:.85rem;color:rgba(255,255,255,.4);text-decoration:line-through;margin-bottom:4px}
+.price-val{
+  font-family:'Nunito',sans-serif;font-size:4.2rem;font-weight:900;
+  color:white;line-height:1;margin-bottom:4px;letter-spacing:-.03em;
+}
+.price-val sup{font-size:1.8rem;vertical-align:super;line-height:0;font-weight:700}
+.price-parcel{font-size:.78rem;color:rgba(255,255,255,.65)}
+.price-parcel strong{color:#7fffd4;font-weight:700}
+
+.price-body{padding:24px 24px 28px;background:white}
+
+.btn-buy{
+  display:block;width:100%;
+  background:var(--orange);color:white;border:none;
+  font-family:'Nunito',sans-serif;font-weight:800;font-size:.88rem;
+  letter-spacing:.06em;text-transform:uppercase;
+  padding:17px;border-radius:6px;text-decoration:none;text-align:center;
+  cursor:pointer;transition:all .2s;
+  box-shadow:0 6px 24px rgba(200,75,30,.3);
+  margin-bottom:12px;
+}
+.btn-buy:hover{background:#a83a10;transform:translateY(-1px);box-shadow:0 10px 32px rgba(200,75,30,.4)}
+
+.btn-wpp{
+  display:flex;align-items:center;justify-content:center;gap:8px;
+  width:100%;background:transparent;
+  border:2px solid #25d366;color:#157a35;
+  font-family:'Nunito',sans-serif;font-weight:700;font-size:.82rem;
+  padding:14px;border-radius:6px;text-decoration:none;
+  transition:background .2s;
+}
+.btn-wpp:hover{background:#f0fbf3}
+
+.price-guarantee{
+  margin-top:14px;font-size:.7rem;color:var(--muted);
+  text-align:center;line-height:1.5;
+}
+
+/* ── FAQ ── */
+.faq-section{
+  background:var(--white);
+  padding:80px 24px;
+}
+
+.faq-inner{max-width:760px;margin:0 auto}
+
+.faq-list{margin-top:40px;display:flex;flex-direction:column;gap:6px}
+
+.faq-item{
+  border:2px solid var(--border);border-radius:8px;overflow:hidden;
+  transition:border-color .2s;
+}
+.faq-item.open{border-color:var(--teal)}
+
+.faq-q{
+  width:100%;background:var(--white);border:none;
+  padding:18px 22px;display:flex;justify-content:space-between;align-items:center;gap:12px;
+  cursor:pointer;font-family:'Nunito',sans-serif;
+  font-size:.92rem;font-weight:700;color:var(--teal);text-align:left;
+  transition:background .2s;
+}
+.faq-q:hover{background:var(--teal3)}
+
+.faq-icon{
+  width:24px;height:24px;border-radius:50%;
+  background:var(--teal);color:white;
+  display:flex;align-items:center;justify-content:center;
+  font-size:1.1rem;font-weight:700;flex-shrink:0;
+  transition:transform .3s,background .2s;
+  line-height:1;padding-bottom:1px;
+}
+.faq-item.open .faq-icon{transform:rotate(45deg);background:var(--orange)}
+
+.faq-a{max-height:0;overflow:hidden;transition:max-height .4s ease}
+.faq-item.open .faq-a{max-height:400px}
+.faq-a-inner{
+  padding:0 22px 18px;border-top:1px solid var(--border);padding-top:14px;
+  font-size:.85rem;color:var(--muted);line-height:1.8;font-weight:300;
+}
+
+/* ── FINAL CTA ── */
+.final-cta{
+  background:linear-gradient(135deg,#0d3830 0%,#1a5c52 50%,#1e6b60 100%);
+  padding:100px 24px;text-align:center;
+  position:relative;overflow:hidden;
+}
+
+.final-cta::before{
+  content:'';position:absolute;
+  top:-120px;right:-120px;width:400px;height:400px;border-radius:50%;
+  background:rgba(255,255,255,.04);
+}
+.final-cta::after{
+  content:'';position:absolute;
+  bottom:-80px;left:-80px;width:300px;height:300px;border-radius:50%;
+  background:var(--orange);opacity:.08;
+}
+
+/* Linha separadora colorida topo */
+.final-cta .top-bar{
+  position:absolute;top:0;left:0;right:0;height:5px;
+  background:linear-gradient(90deg,var(--teal2),var(--orange),var(--blue),var(--teal2));
+}
+
+.final-inner{position:relative;z-index:1;max-width:680px;margin:0 auto}
+
+.final-cta h2{
+  font-family:'Nunito',sans-serif;font-weight:900;
+  font-size:clamp(2.2rem,6vw,4rem);
+  color:white;line-height:1.05;margin-bottom:14px;letter-spacing:-.03em;
+}
+.final-cta h2 span{color:#f9c083}
+.final-cta p{
+  font-size:clamp(.9rem,2vw,1.05rem);color:rgba(255,255,255,.65);
+  max-width:500px;margin:0 auto 40px;line-height:1.8;font-weight:300;
+}
+
+/* ── FOOTER ── */
+footer{
+  background:#0d1a18;padding:32px 24px;
+  display:flex;justify-content:space-between;align-items:center;
+  flex-wrap:wrap;gap:12px;
+}
+.footer-brand{display:flex;align-items:center;gap:10px}
+.footer-sq{display:grid;grid-template-columns:1fr 1fr;gap:2px;width:18px}
+.footer-sq span{display:block;height:8px;border-radius:1px}
+.footer-sq span:nth-child(1){background:var(--teal)}
+.footer-sq span:nth-child(2){background:var(--orange)}
+.footer-sq span:nth-child(3){background:var(--blue)}
+.footer-sq span:nth-child(4){background:var(--teal2)}
+.footer-name{font-family:'Nunito',sans-serif;font-weight:700;font-size:.78rem;color:rgba(255,255,255,.6)}
+footer small{font-size:.68rem;color:rgba(255,255,255,.3)}
+
+/* ── SCROLL REVEAL ── */
+.reveal{
+  opacity:0;transform:translateY(28px);
+  transition:opacity .7s cubic-bezier(.2,.8,.2,1),transform .7s cubic-bezier(.2,.8,.2,1);
+}
+.reveal.visible{opacity:1;transform:translateY(0)}
+.reveal-delay-1{transition-delay:.1s}
+.reveal-delay-2{transition-delay:.18s}
+.reveal-delay-3{transition-delay:.26s}
+.reveal-delay-4{transition-delay:.34s}
+
+/* ── RESPONSIVE MOBILE ── */
+@media(max-width:680px){
+  .hero-title{font-size:2.8rem}
+  .stats-grid{grid-template-columns:repeat(2,1fr)}
+  .stat-item:nth-child(2){border-right:none}
+  .prof-grid{grid-template-columns:1fr}
+  .prof-photo{aspect-ratio:4/3}
+  .modules-wrap{grid-template-columns:1fr}
+  .aud-grid{grid-template-columns:1fr}
+  .hl-grid{grid-template-columns:1fr}
+  .pricing-grid{grid-template-columns:1fr}
+  .price-card{position:static}
+  .hero-ctas{flex-direction:column;align-items:flex-start}
+  .btn-hero{width:100%;justify-content:center}
+  .btn-ghost{width:100%;justify-content:center}
+  .gallery-item{width:160px;height:110px}
+  nav{padding:0 16px}
+  .nav-text small{display:none}
+}
+
+@media(max-width:420px){
+  .hero-title{font-size:2.2rem}
+  .section-title-big{font-size:2rem}
+  .price-val{font-size:3.2rem}
+}
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav id="nav">
+  <div class="nav-logo">
+    <div class="nav-squares">
+      <span class="ns1"></span><span class="ns2"></span>
+      <span class="ns3"></span><span class="ns4"></span>
+    </div>
+    <div class="nav-text">
+      Dr. Alexandre Kaup
+      <small>Cannabis Medicinal &amp; Neurologia</small>
+    </div>
+  </div>
+  <a href="#pricing" class="nav-btn">Inscrever-se</a>
+</nav>
+
+<!-- ═══════════ HERO ═══════════ -->
+<section class="hero" id="hero">
+  <div class="hero-parallax-bg" id="heroBg"></div>
+  <div class="hero-shape hs4"></div>
+  <div class="hero-shape hs1" id="hs1"></div>
+  <div class="hero-shape hs2" id="hs2"></div>
+  <div class="hero-shape hs3" id="hs3"></div>
+
+  <div class="hero-inner">
+    <div class="hero-badge">Curso online · Hospital Israelita Albert Einstein</div>
+
+    <h1 class="hero-title">
+      Cannabis<br>Medicinal
+      <span class="hero-title-accent">&amp; Neurologia</span>
+    </h1>
+    <p class="hero-sub">Da fisiologia do SEC ao tratamento clínico</p>
+    <p class="hero-desc">
+      O curso mais completo do Brasil sobre uso terapêutico dos canabinoides em condições neurológicas — ministrado por quem pesquisa, prescreve e ensina no Albert Einstein.
+    </p>
+    <div class="hero-ctas">
+      <a href="#pricing" class="btn-hero">
+        <svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
+        Quero me inscrever
+      </a>
+      <a href="#curriculum" class="btn-ghost">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M9 18l6-6-6-6"/></svg>
+        Ver o conteúdo
+      </a>
+    </div>
+  </div>
+
+  <div class="scroll-hint">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 5v14M5 12l7 7 7-7"/></svg>
+    rolar
+  </div>
+</section>
+
+<!-- ═══════════ STATS ═══════════ -->
+<div class="stats-band">
+  <div class="stats-grid">
+    <div class="stat-item reveal">
+      <div class="stat-n">8<span> mod</span></div>
+      <div class="stat-l">Módulos completos</div>
+    </div>
+    <div class="stat-item reveal reveal-delay-1">
+      <div class="stat-n">24<span>h</span></div>
+      <div class="stat-l">Conteúdo em vídeo</div>
+    </div>
+    <div class="stat-item reveal reveal-delay-2">
+      <div class="stat-n">25<span>+</span></div>
+      <div class="stat-l">Anos de experiência</div>
+    </div>
+    <div class="stat-item reveal reveal-delay-3">
+      <div class="stat-n">∞</div>
+      <div class="stat-l">Acesso vitalício</div>
+    </div>
+  </div>
+</div>
+
+<!-- ═══════════ AULA DEMO / VIDEO ═══════════ -->
+<section class="video-section">
+  <div class="vs-inner">
+    <div class="demo-label">
+      <svg width="10" height="10" viewBox="0 0 10 10" fill="var(--orange)"><circle cx="5" cy="5" r="5"/></svg>
+      Aula demonstração gratuita
+    </div>
+    <div class="section-eyebrow eyebrow-orange reveal">Módulo 01 · Conteúdo exclusivo</div>
+    <h2 class="section-title-big title-teal reveal">
+      Sistema<br>Endocanabinoide
+    </h2>
+    <p class="section-lead reveal">
+      Assista um trecho da primeira aula do curso — bases neurofisiológicas e implicações clínicas, com o Dr. Kaup diretamente do Hospital Albert Einstein.
+    </p>
+
+    <!-- VIDEO PLAYER PLACEHOLDER -->
+    <div class="video-wrap reveal" id="videoWrap">
+      <!-- Substituir src pela imagem thumbnail real quando disponível -->
+      <div class="video-thumb" style="background:linear-gradient(135deg,#0d3830 0%,#1a5c52 60%,#2a8a6e 100%)"></div>
+      <div class="video-overlay">
+        <div class="play-btn" onclick="playVideo()">
+          <svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
+        </div>
+        <div class="video-caption">Assistir aula gratuita — 12 min</div>
+      </div>
+    </div>
+    <!-- Para ativar vídeo real: adicione <iframe> dentro de #videoWrap com o link do YouTube/Vimeo -->
+  </div>
+</section>
+
+<!-- ═══════════ PROFESSOR ═══════════ -->
+<section class="prof-section">
+  <div class="prof-inner">
+    <div class="section-eyebrow eyebrow-teal reveal">O professor</div>
+    <h2 class="section-title-big title-teal reveal">Dr. Alexandre<br>Kaup</h2>
+
+    <div class="prof-grid">
+      <!-- FOTO DO DOUTOR -->
+      <div class="prof-photo-wrap reveal">
+        <div class="prof-photo">
+          <!-- 
+            ╔══════════════════════════════════════╗
+            ║  INSIRA A FOTO DO DR. KAUP AQUI:     ║
+            ║  <img src="foto-kaup.jpg"             ║
+            ║   style="position:absolute;inset:0;  ║
+            ║   width:100%;height:100%;             ║
+            ║   object-fit:cover">                  ║
+            ╚══════════════════════════════════════╝
+          -->
+          <div class="photo-hint">
+            <svg viewBox="0 0 24 24" fill="white"><path d="M12 12c2.7 0 4.8-2.1 4.8-4.8S14.7 2.4 12 2.4 7.2 4.5 7.2 7.2 9.3 12 12 12zm0 2.4c-3.2 0-9.6 1.6-9.6 4.8v2.4h19.2v-2.4c0-3.2-6.4-4.8-9.6-4.8z"/></svg>
+            <span>Foto do<br>Dr. Kaup</span>
+          </div>
+          <div class="prof-photo-label">
+            <strong>Dr. Alexandre Kaup</strong>
+            <span>Neurologista · Hospital Albert Einstein</span>
+          </div>
+        </div>
+        <div class="einstein-badge">
+          <strong>Einstein</strong>
+          <span>Corpo Clínico</span>
+        </div>
+      </div>
+
+      <!-- INFO -->
+      <div class="prof-info reveal reveal-delay-1">
+        <div class="prof-name-big">Referência nacional<br>em Neurologia</div>
+        <div class="prof-role">CRM-SP · Neurologista · Pesquisador Einstein</div>
+
+        <ul class="prof-creds">
+          <li><div class="cred-sq cs-teal"></div>Médico do Corpo Clínico — Hospital Israelita Albert Einstein desde 2001</li>
+          <li><div class="cred-sq cs-orange"></div>Pesquisador — Centro de Pesquisa Clínica Einstein</li>
+          <li><div class="cred-sq cs-blue"></div>Doutorado em Neurologia — UNIFESP + Houston Headache Clinic (EUA)</li>
+          <li><div class="cred-sq cs-teal"></div>Fellowship em Cefaleias — Houston Headache Clinic, Texas</li>
+          <li><div class="cred-sq cs-orange"></div>Especialista em toxina botulínica, enxaqueca e cannabis medicinal</li>
+          <li><div class="cred-sq cs-blue"></div>Autor de pesquisa clínica sobre CBD/THC em enxaqueca crônica — Einstein</li>
+        </ul>
+
+        <div class="prof-quote">
+          <p>"Na neurologia, muitos pacientes são polimedicados, com doenças crônicas e incapacitantes. A cannabis não é a estrela única — é mais um instrumento no tratamento."</p>
+          <cite>— Dr. Alexandre Kaup, Einstein</cite>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════ GALERIA (scroll horizontal) ═══════════ -->
+<div class="gallery-strip" id="gallery">
+  <!-- 
+    ═══════════════════════════════════════════════════
+    ADICIONAR FOTOS REAIS: substituir cada .gallery-item
+    por <img src="foto.jpg" style="width:100%;height:100%;object-fit:cover">
+    ═══════════════════════════════════════════════════
+  -->
+  <div class="gallery-item">
+    <div class="gallery-item-inner">
+      <svg viewBox="0 0 24 24" fill="currentColor"><path d="M21 19V5c0-1.1-.9-2-2-2H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2zM8.5 13.5l2.5 3.01L14.5 12l4.5 6H5l3.5-4.5z"/></svg>
+      Foto Hospital Einstein
+    </div>
+    <div class="gallery-pill">Hospital Einstein</div>
+  </div>
+  <div class="gallery-item">
+    <div class="gallery-item-inner">
+      <svg viewBox="0 0 24 24" fill="currentColor"><path d="M21 19V5c0-1.1-.9-2-2-2H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2zM8.5 13.5l2.5 3.01L14.5 12l4.5 6H5l3.5-4.5z"/></svg>
+      Dr. Kaup em aula
+    </div>
+    <div class="gallery-pill">Aula ao vivo</div>
+  </div>
+  <div class="gallery-item">
+    <div class="gallery-item-inner">
+      <svg viewBox="0 0 24 24" fill="currentColor"><path d="M21 19V5c0-1.1-.9-2-2-2H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2zM8.5 13.5l2.5 3.01L14.5 12l4.5 6H5l3.5-4.5z"/></svg>
+      Consultório
+    </div>
+    <div class="gallery-pill">Consultório</div>
+  </div>
+  <div class="gallery-item">
+    <div class="gallery-item-inner">
+      <svg viewBox="0 0 24 24" fill="currentColor"><path d="M21 19V5c0-1.1-.9-2-2-2H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2zM8.5 13.5l2.5 3.01L14.5 12l4.5 6H5l3.5-4.5z"/></svg>
+      Pesquisa clínica
+    </div>
+    <div class="gallery-pill">Pesquisa clínica</div>
+  </div>
+  <div class="gallery-item">
+    <div class="gallery-item-inner">
+      <svg viewBox="0 0 24 24" fill="currentColor"><path d="M21 19V5c0-1.1-.9-2-2-2H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2zM8.5 13.5l2.5 3.01L14.5 12l4.5 6H5l3.5-4.5z"/></svg>
+      Workshop 2025
+    </div>
+    <div class="gallery-pill">Workshop 2025</div>
+  </div>
+  <div class="gallery-item">
+    <div class="gallery-item-inner">
+      <svg viewBox="0 0 24 24" fill="currentColor"><path d="M21 19V5c0-1.1-.9-2-2-2H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2zM8.5 13.5l2.5 3.01L14.5 12l4.5 6H5l3.5-4.5z"/></svg>
+      Congresso
+    </div>
+    <div class="gallery-pill">Apresentação</div>
+  </div>
+</div>
+
+<!-- ═══════════ CURRICULUM ═══════════ -->
+<section class="curriculum-section" id="curriculum">
+  <div style="max-width:900px;margin:0 auto">
+    <div class="section-eyebrow eyebrow-orange reveal">Conteúdo do curso</div>
+    <h2 class="section-title-big title-orange reveal">O que você<br>vai aprender</h2>
+    <p class="section-lead reveal">8 módulos em vídeo com embasamento científico atualizado — do SEC à prescrição responsável.</p>
+  </div>
+
+  <div class="modules-wrap">
+    <div class="mod-card c-teal reveal">
+      <div class="mod-head">
+        <div>
+          <div class="mod-num">Módulo 01</div>
+          <div class="mod-title">Sistema Endocanabinoide — Bases Neurofisiológicas</div>
+        </div>
+        <div class="mod-badge">Demo gratuita</div>
+      </div>
+      <div class="mod-body">
+        <div class="mod-desc">A aula fundacional do curso — compreenda o SEC antes de qualquer prescrição.</div>
+        <ul class="mod-topics">
+          <li>História: Mechoulam, CB1, CB2 e a linha do tempo</li>
+          <li>Endocanabinoides AEA, 2-AG e enzimas FAAH/MAGL</li>
+          <li>Endocanabinoidoma — conceito expandido</li>
+          <li>Caso Jo Cameron: genética FAAH-OUT e hipoalgesia</li>
+          <li>SEC na enxaqueca: expressão gênica e upregulation</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="mod-card c-orange reveal reveal-delay-1">
+      <div class="mod-head">
+        <div>
+          <div class="mod-num">Módulo 02</div>
+          <div class="mod-title">Farmacologia dos Canabinoides</div>
+        </div>
+      </div>
+      <div class="mod-body">
+        <div class="mod-desc">THC, CBD, CBG, THCV — mecanismos, farmacocinética e interações.</div>
+        <ul class="mod-topics">
+          <li>Fitocanabinoides e seus perfis farmacológicos</li>
+          <li>Vias de administração e biodisponibilidade</li>
+          <li>Interações medicamentosas em neurologia</li>
+          <li>Janela terapêutica e efeitos colaterais</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="mod-card c-blue reveal">
+      <div class="mod-head">
+        <div>
+          <div class="mod-num">Módulo 03</div>
+          <div class="mod-title">Cannabis na Enxaqueca e Cefaleia</div>
+        </div>
+      </div>
+      <div class="mod-body">
+        <div class="mod-desc">A área de pesquisa principal do Dr. Kaup — com dados do ensaio clínico Einstein.</div>
+        <ul class="mod-topics">
+          <li>Síndrome de Deficiência Endocanabinoide</li>
+          <li>Evidências clínicas em enxaqueca crônica</li>
+          <li>Dados do estudo CBD/THC no Einstein</li>
+          <li>Protocolo de prescrição e monitoramento</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="mod-card c-teal2 reveal reveal-delay-1">
+      <div class="mod-head">
+        <div>
+          <div class="mod-num">Módulo 04</div>
+          <div class="mod-title">Espasticidade e Doenças do Movimento</div>
+        </div>
+      </div>
+      <div class="mod-body">
+        <div class="mod-desc">Esclerose múltipla, lesão medular, distonias e Parkinson.</div>
+        <ul class="mod-topics">
+          <li>Mecanismos da espasticidade e o SEC</li>
+          <li>Evidências em esclerose múltipla</li>
+          <li>THC e distonias — o que diz a literatura</li>
+          <li>Parkinson e canabidiol: perspectiva atual</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="mod-card c-teal reveal">
+      <div class="mod-head">
+        <div>
+          <div class="mod-num">Módulo 05</div>
+          <div class="mod-title">Epilepsia e Neurodesenvolvimento</div>
+        </div>
+      </div>
+      <div class="mod-body">
+        <div class="mod-desc">CBD aprovado — do Epidiolex à prática brasileira.</div>
+        <ul class="mod-topics">
+          <li>Síndromes de Dravet e Lennox-Gastaut</li>
+          <li>Mecanismo anticonvulsivante do CBD</li>
+          <li>Autismo e receptor CB2 na micróglia</li>
+          <li>Regulamentação Anvisa — como prescrever</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="mod-card c-orange reveal reveal-delay-1">
+      <div class="mod-head">
+        <div>
+          <div class="mod-num">Módulo 06</div>
+          <div class="mod-title">Dor Crônica e Neuropatias</div>
+        </div>
+      </div>
+      <div class="mod-body">
+        <div class="mod-desc">Um dos usos mais prevalentes — com casos clínicos reais.</div>
+        <ul class="mod-topics">
+          <li>Dor neuropática e o SEC</li>
+          <li>Redução de opioides e analgesia pós-operatória</li>
+          <li>Fibromialgia — evidências e limitações</li>
+          <li>Casos clínicos comentados</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="mod-card c-blue reveal">
+      <div class="mod-head">
+        <div>
+          <div class="mod-num">Módulo 07</div>
+          <div class="mod-title">Sono, Ansiedade e Saúde Mental</div>
+        </div>
+      </div>
+      <div class="mod-body">
+        <div class="mod-desc">Onde o SEC intersecta psiquiatria e neurologia.</div>
+        <ul class="mod-topics">
+          <li>SEC, ansiedade e extinção do medo</li>
+          <li>Cannabis e sono — evidências e riscos</li>
+          <li>Quando NÃO prescrever: populações de risco</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="mod-card c-teal2 reveal reveal-delay-1">
+      <div class="mod-head">
+        <div>
+          <div class="mod-num">Módulo 08</div>
+          <div class="mod-title">Prescrição Responsável e Regulamentação</div>
+        </div>
+      </div>
+      <div class="mod-body">
+        <div class="mod-desc">Do consultório à farmácia — com segurança jurídica.</div>
+        <ul class="mod-topics">
+          <li>Marco regulatório Anvisa atualizado</li>
+          <li>Como estruturar a consulta de cannabis</li>
+          <li>Documentação e consentimento informado</li>
+          <li>Como conversar com paciente e família</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════ PARA QUEM ═══════════ -->
+<section class="audience-section">
+  <div class="aud-inner">
+    <div class="section-eyebrow aud-eyebrow reveal">Para quem é</div>
+    <h2 class="section-title-big aud-title reveal">Feito para profissionais<br>de saúde sérios</h2>
+    <p class="section-lead aud-lead reveal">Conteúdo que pressupõe formação clínica e rigor científico.</p>
+
+    <div class="aud-grid">
+      <div class="aud-card reveal">
+        <div class="aud-icon">🧠</div>
+        <h3>Neurologistas</h3>
+        <p>Aprofunde o entendimento do SEC e domine a prescrição de canabinoides nas principais condições neurológicas com suporte científico robusto.</p>
+      </div>
+      <div class="aud-card reveal reveal-delay-1">
+        <div class="aud-icon">👨‍⚕️</div>
+        <h3>Clínicos e Especialistas</h3>
+        <p>Clínicos gerais, reumatologistas, oncologistas e psiquiatras que atendem condições onde os canabinoides têm indicação crescente.</p>
+      </div>
+      <div class="aud-card reveal reveal-delay-2">
+        <div class="aud-icon">🔬</div>
+        <h3>Residentes e Pesquisadores</h3>
+        <p>Formação sólida com referências de 2025 — ideal para quem está construindo base para pesquisa clínica ou especialização.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════ DESTAQUES ═══════════ -->
+<section class="highlights-section">
+  <div class="hl-inner">
+    <div class="section-eyebrow eyebrow-blue reveal">Por que escolher</div>
+    <h2 class="section-title-big title-blue reveal">Por que este curso<br>é diferente</h2>
+
+    <div class="hl-grid">
+      <div class="hl-card reveal">
+        <div class="hl-icon hi-teal">📍</div>
+        <div>
+          <h4>Produzido dentro do Einstein</h4>
+          <p>Conteúdo desenvolvido por médico ativo no Hospital Israelita Albert Einstein com acesso a protocolos clínicos e pesquisa institucional real.</p>
+        </div>
+      </div>
+      <div class="hl-card reveal reveal-delay-1">
+        <div class="hl-icon hi-orange">📄</div>
+        <div>
+          <h4>Evidências de 2025</h4>
+          <p>Referências atualizadas incluindo Acta Pharmacologica Sinica (2025), Physiol Rev (2024) e dados do ensaio clínico do Dr. Kaup.</p>
+        </div>
+      </div>
+      <div class="hl-card reveal">
+        <div class="hl-icon hi-blue">🏥</div>
+        <div>
+          <h4>Casos clínicos reais</h4>
+          <p>Discussão de casos emblemáticos — como Jo Cameron (FAAH-OUT) — e pacientes do próprio consultório, com raciocínio clínico completo.</p>
+        </div>
+      </div>
+      <div class="hl-card reveal reveal-delay-1">
+        <div class="hl-icon hi-teal">⚖️</div>
+        <div>
+          <h4>Segurança jurídica na prescrição</h4>
+          <p>Módulo dedicado ao marco regulatório Anvisa, documentação correta e como estruturar o atendimento com proteção para você e seu paciente.</p>
+        </div>
+      </div>
+      <div class="hl-card reveal">
+        <div class="hl-icon hi-orange">🎓</div>
+        <div>
+          <h4>Certificado de conclusão</h4>
+          <p>Certificado digital com carga horária e identificação do professor — válido para portfólio e atualização curricular.</p>
+        </div>
+      </div>
+      <div class="hl-card reveal reveal-delay-1">
+        <div class="hl-icon hi-blue">📱</div>
+        <div>
+          <h4>Acesso vitalício, qualquer dispositivo</h4>
+          <p>Sem prazo de expiração. Revisita as aulas sempre que precisar — computador, tablet ou celular. Atualizações inclusas.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════ PRICING ═══════════ -->
+<section class="pricing-section" id="pricing">
+  <div class="pricing-inner">
+    <div class="section-eyebrow eyebrow-orange reveal">Investimento</div>
+    <h2 class="section-title-big title-orange reveal">Garanta sua vaga</h2>
+
+    <div class="pricing-grid">
+      <div class="pricing-left reveal">
+        <h3>Tudo incluído no curso</h3>
+        <p>Um investimento único para uma formação que vai transformar a forma como você atende pacientes com condições neurológicas crônicas.</p>
+        <ul class="inc-list">
+          <li><div class="inc-sq"></div>8 módulos completos em vídeo (24h+ de conteúdo)</li>
+          <li><div class="inc-sq"></div>Slides originais das aulas em PDF</li>
+          <li><div class="inc-sq"></div>Referências científicas comentadas</li>
+          <li><div class="inc-sq"></div>Casos clínicos com discussão detalhada</li>
+          <li><div class="inc-sq"></div>Módulo de prescrição e regulamentação Anvisa</li>
+          <li><div class="inc-sq"></div>Certificado digital de conclusão</li>
+          <li><div class="inc-sq"></div>Acesso vitalício com atualizações inclusas</li>
+          <li><div class="inc-sq"></div>Suporte via canal exclusivo do curso</li>
+        </ul>
+      </div>
+
+      <div class="price-card reveal reveal-delay-2">
+        <div class="price-top">
+          <div class="price-eyebrow">Acesso completo · Turma 2025</div>
+          <div class="price-de">De R$ 1.497</div>
+          <div class="price-val"><sup>R$</sup>897</div>
+          <div class="price-parcel">ou <strong>12× de R$ 89,70</strong> sem juros</div>
+        </div>
+        <div class="price-body">
+          <a href="https://wa.me/5511976848773?text=Olá!%20Quero%20me%20inscrever%20no%20curso%20Cannabis%20%26%20Neurologia%20do%20Dr.%20Kaup.%20Como%20faço?" class="btn-buy">
+            Inscrever-se agora
+          </a>
+          <a href="https://wa.me/5511976848773?text=Olá!%20Tenho%20dúvidas%20sobre%20o%20curso%20de%20Cannabis%20e%20Neurologia%20do%20Dr.%20Kaup." class="btn-wpp" target="_blank">
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="#25d366"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+            Falar com a equipe
+          </a>
+          <div class="price-guarantee">🔒 Pagamento seguro · Garantia incondicional de 7 dias</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════ FAQ ═══════════ -->
+<section class="faq-section">
+  <div class="faq-inner">
+    <div class="section-eyebrow eyebrow-teal reveal">Dúvidas frequentes</div>
+    <h2 class="section-title-big title-teal reveal">Perguntas<br>e respostas</h2>
+
+    <div class="faq-list">
+      <div class="faq-item reveal">
+        <button class="faq-q" onclick="faq(this)">Preciso ser médico para me inscrever?<span class="faq-icon">+</span></button>
+        <div class="faq-a"><div class="faq-a-inner">O curso é desenvolvido para profissionais de saúde com formação clínica — médicos de todas as especialidades, além de profissionais com interesse em aprofundar o conhecimento sobre o sistema endocanabinoide. O conteúdo pressupõe base em fisiologia e farmacologia.</div></div>
+      </div>
+      <div class="faq-item reveal">
+        <button class="faq-q" onclick="faq(this)">Por quanto tempo terei acesso ao curso?<span class="faq-icon">+</span></button>
+        <div class="faq-a"><div class="faq-a-inner">O acesso é vitalício. Você poderá assistir e revisitar as aulas quantas vezes quiser, em qualquer dispositivo. Sempre que houver atualizações de conteúdo, você receberá sem custo adicional.</div></div>
+      </div>
+      <div class="faq-item reveal">
+        <button class="faq-q" onclick="faq(this)">O curso tem certificado válido?<span class="faq-icon">+</span></button>
+        <div class="faq-a"><div class="faq-a-inner">Sim. Ao concluir todos os módulos, você receberá um certificado digital com carga horária, identificação do curso e do professor — válido para portfólio e atualização curricular.</div></div>
+      </div>
+      <div class="faq-item reveal">
+        <button class="faq-q" onclick="faq(this)">E se eu não ficar satisfeito?<span class="faq-icon">+</span></button>
+        <div class="faq-a"><div class="faq-a-inner">Oferecemos garantia incondicional de 7 dias. Se por qualquer motivo você não se sentir satisfeito, basta solicitar o reembolso integral dentro deste prazo — sem perguntas e sem burocracia.</div></div>
+      </div>
+      <div class="faq-item reveal">
+        <button class="faq-q" onclick="faq(this)">As aulas abordam a regulamentação Anvisa?<span class="faq-icon">+</span></button>
+        <div class="faq-a"><div class="faq-a-inner">Sim. O Módulo 8 é dedicado integralmente à prescrição responsável no contexto brasileiro, incluindo o marco regulatório Anvisa atualizado, documentação necessária e como estruturar o atendimento com segurança jurídica.</div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════ FINAL CTA ═══════════ -->
+<div class="final-cta">
+  <div class="top-bar"></div>
+  <div class="final-inner">
+    <h2>Comece com a ciência.<br><span>Prescreva com segurança.</span></h2>
+    <p>Junte-se a mais de 1.200 profissionais de saúde que já estão aprofundando sua prática clínica com o curso mais rigoroso de cannabis medicinal em neurologia do Brasil.</p>
+    <a href="#pricing" class="btn-hero" style="display:inline-flex">
+      <svg viewBox="0 0 24 24" width="18" height="18" fill="currentColor"><path d="M8 5v14l11-7z"/></svg>
+      Garantir minha vaga
+    </a>
+  </div>
+</div>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-brand">
+    <div class="footer-sq">
+      <span></span><span></span><span></span><span></span>
+    </div>
+    <span class="footer-name">Dr. Alexandre Kaup · Cannabis Medicinal &amp; Neurologia</span>
+  </div>
+  <small>© 2025 · Hospital Israelita Albert Einstein · Todos os direitos reservados</small>
+</footer>
+
+<script>
+// ── FAQ ──
+function faq(btn) {
+  const item = btn.closest('.faq-item');
+  const open = item.classList.contains('open');
+  document.querySelectorAll('.faq-item').forEach(el => el.classList.remove('open'));
+  if (!open) item.classList.add('open');
+}
+
+// ── PARALLAX ──
+const heroBg   = document.getElementById('heroBg');
+const hs1      = document.getElementById('hs1');
+const hs2      = document.getElementById('hs2');
+const hs3      = document.getElementById('hs3');
+
+function onScroll() {
+  const y = window.scrollY;
+  const vh = window.innerHeight;
+
+  // Parallax no fundo do hero
+  if (y < vh * 1.5) {
+    heroBg.style.transform = `translateY(${y * 0.38}px)`;
+    if (hs1) hs1.style.transform = `rotate(20deg) translateY(${y * 0.22}px)`;
+    if (hs2) hs2.style.transform = `rotate(-10deg) translateY(${y * 0.15}px)`;
+    if (hs3) hs3.style.transform = `rotate(35deg) translateY(${y * 0.28}px)`;
+  }
+
+  // Nav shadow
+  document.getElementById('nav').classList.toggle('scrolled', y > 40);
+}
+
+// Throttle para performance mobile
+let ticking = false;
+window.addEventListener('scroll', () => {
+  if (!ticking) {
+    requestAnimationFrame(() => { onScroll(); ticking = false; });
+    ticking = true;
+  }
+}, { passive: true });
+
+// ── SCROLL REVEAL ──
+const revealObs = new IntersectionObserver((entries) => {
+  entries.forEach(e => {
+    if (e.isIntersecting) {
+      e.target.classList.add('visible');
+      revealObs.unobserve(e.target);
+    }
+  });
+}, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
+
+document.querySelectorAll('.reveal').forEach(el => revealObs.observe(el));
+
+// ── VIDEO PLACEHOLDER ──
+function playVideo() {
+  const wrap = document.getElementById('videoWrap');
+  // Quando tiver URL real: substituir pelo iframe do YouTube/Vimeo
+  // Exemplo: wrap.innerHTML = '<iframe src="https://www.youtube.com/embed/ID?autoplay=1" ...></iframe>';
+  const overlay = wrap.querySelector('.video-overlay');
+  overlay.style.background = 'rgba(10,30,26,.8)';
+  const caption = wrap.querySelector('.video-caption');
+  caption.textContent = 'Insira o link do vídeo no código';
+}
+
+// ── GALLERY DRAG SCROLL ──
+const gallery = document.getElementById('gallery');
+let isDown = false, startX, scrollLeft;
+gallery.addEventListener('mousedown', e => {
+  isDown = true; gallery.style.cursor = 'grabbing';
+  startX = e.pageX - gallery.offsetLeft;
+  scrollLeft = gallery.scrollLeft;
+});
+gallery.addEventListener('mouseleave', () => { isDown = false; gallery.style.cursor = '' });
+gallery.addEventListener('mouseup',    () => { isDown = false; gallery.style.cursor = '' });
+gallery.addEventListener('mousemove', e => {
+  if (!isDown) return; e.preventDefault();
+  const x = e.pageX - gallery.offsetLeft;
+  gallery.scrollLeft = scrollLeft - (x - startX) * 1.4;
+});
+</script>
+</body>
+</html>
