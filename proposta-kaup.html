@@ -1,0 +1,1224 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Proposta Comercial — Dr. Alexandre Kaup</title>
+<link href="https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,300;0,400;0,600;0,700;0,800;0,900;1,400;1,700&family=Nunito+Sans:wght@300;400;600;700&display=swap" rel="stylesheet">
+<style>
+:root {
+  --teal:    #1a5c52;
+  --teal2:   #2a8a6e;
+  --teal3:   #d6ede9;
+  --teal4:   #eef7f5;
+  --orange:  #c84b1e;
+  --orange2: #f06030;
+  --orange3: #fde8df;
+  --blue:    #3a5fa0;
+  --blue2:   #5578c0;
+  --blue3:   #dde5f5;
+  --white:   #ffffff;
+  --off:     #f5f7f6;
+  --text:    #111818;
+  --muted:   #4a5a58;
+  --border:  #dde8e5;
+}
+
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { font-size: 16px; }
+
+body {
+  background: var(--off);
+  color: var(--text);
+  font-family: 'Nunito Sans', sans-serif;
+  font-weight: 400;
+  line-height: 1.7;
+  -webkit-font-smoothing: antialiased;
+  print-color-adjust: exact;
+  -webkit-print-color-adjust: exact;
+}
+
+/* ── PAGE WRAPPER ── */
+.page {
+  max-width: 860px;
+  margin: 0 auto;
+  background: var(--white);
+  box-shadow: 0 0 80px rgba(0,0,0,.12);
+}
+
+/* ── CAPA ── */
+.cover {
+  background: linear-gradient(150deg, #0d3830 0%, #1a5c52 45%, #1e6b60 100%);
+  padding: 0;
+  position: relative;
+  overflow: hidden;
+  min-height: 420px;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Grade geométrica fundo */
+.cover::before {
+  content: '';
+  position: absolute; inset: 0;
+  background-image:
+    linear-gradient(rgba(255,255,255,.04) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255,255,255,.04) 1px, transparent 1px);
+  background-size: 40px 40px;
+}
+
+/* Formas decorativas */
+.cover-shape1 {
+  position: absolute; top: -60px; right: -60px;
+  width: 280px; height: 280px; border-radius: 50%;
+  background: rgba(200,75,30,.12);
+}
+.cover-shape2 {
+  position: absolute; bottom: -40px; right: 120px;
+  width: 160px; height: 160px; border-radius: 4px;
+  background: rgba(255,255,255,.04);
+  transform: rotate(25deg);
+}
+.cover-shape3 {
+  position: absolute; top: 60px; right: 200px;
+  width: 80px; height: 80px; border-radius: 4px;
+  background: rgba(200,75,30,.15);
+  transform: rotate(15deg);
+}
+
+/* Barra de cor superior */
+.cover-topbar {
+  height: 6px;
+  background: linear-gradient(90deg, var(--teal2), var(--orange), var(--blue), var(--teal2));
+  flex-shrink: 0;
+}
+
+.cover-inner {
+  position: relative; z-index: 1;
+  padding: 48px 56px 52px;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.cover-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 48px;
+}
+
+.brand-mark {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.brand-squares {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 4px;
+  width: 26px;
+}
+.brand-squares span {
+  display: block; height: 11px; border-radius: 2px;
+}
+.bs1 { background: var(--teal2); }
+.bs2 { background: var(--orange); }
+.bs3 { background: var(--blue2); }
+.bs4 { background: rgba(255,255,255,.5); }
+
+.brand-name {
+  font-family: 'Raleway', sans-serif;
+  font-weight: 800;
+  font-size: .85rem;
+  color: rgba(255,255,255,.9);
+  letter-spacing: .12em;
+  text-transform: uppercase;
+}
+
+.cover-meta {
+  text-align: right;
+}
+.cover-meta p {
+  font-size: .72rem;
+  color: rgba(255,255,255,.5);
+  letter-spacing: .08em;
+  text-transform: uppercase;
+  line-height: 1.8;
+}
+.cover-meta strong {
+  color: rgba(255,255,255,.8);
+  font-weight: 700;
+}
+
+/* Título principal */
+.cover-title-block {}
+.cover-eyebrow {
+  font-family: 'Raleway', sans-serif;
+  font-weight: 700;
+  font-size: .72rem;
+  letter-spacing: .2em;
+  text-transform: uppercase;
+  color: var(--orange2);
+  margin-bottom: 12px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+.cover-eyebrow::before {
+  content: '';
+  display: inline-block;
+  width: 28px; height: 2px;
+  background: var(--orange2);
+}
+
+.cover-title {
+  font-family: 'Raleway', sans-serif;
+  font-weight: 900;
+  font-size: clamp(2.8rem, 6vw, 4.4rem);
+  color: #fff;
+  line-height: 1;
+  letter-spacing: -.03em;
+  margin-bottom: 8px;
+}
+
+.cover-title-sub {
+  font-family: 'Raleway', sans-serif;
+  font-weight: 400;
+  font-size: clamp(1.1rem, 2.5vw, 1.5rem);
+  color: rgba(255,255,255,.6);
+  letter-spacing: -.01em;
+}
+
+.cover-footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: 40px;
+  padding-top: 28px;
+  border-top: 1px solid rgba(255,255,255,.1);
+}
+
+.cover-client {
+  font-size: .8rem;
+  color: rgba(255,255,255,.6);
+}
+.cover-client strong {
+  display: block;
+  font-family: 'Raleway', sans-serif;
+  font-weight: 800;
+  font-size: 1.05rem;
+  color: white;
+  letter-spacing: -.01em;
+}
+.cover-client span { font-weight: 300; }
+
+.cover-validity {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  background: rgba(255,255,255,.08);
+  border: 1px solid rgba(255,255,255,.15);
+  border-radius: 50px;
+  padding: 7px 18px;
+  font-size: .72rem;
+  font-weight: 700;
+  color: rgba(255,255,255,.75);
+  letter-spacing: .06em;
+  text-transform: uppercase;
+}
+.cover-validity::before {
+  content: '';
+  width: 7px; height: 7px;
+  border-radius: 50%;
+  background: #7fffd4;
+}
+
+/* ── DIVISOR DE COR ── */
+.color-band {
+  height: 8px;
+  display: flex;
+}
+.color-band span {
+  flex: 1;
+}
+.cb1 { background: var(--teal); }
+.cb2 { background: var(--orange); }
+.cb3 { background: var(--blue); }
+.cb4 { background: var(--teal2); }
+
+/* ── BODY CONTENT ── */
+.doc-body { padding: 52px 56px; }
+
+/* ── INTRO ── */
+.intro-block {
+  margin-bottom: 52px;
+  padding: 32px 36px;
+  background: var(--teal4);
+  border-left: 5px solid var(--teal);
+  border-radius: 0 8px 8px 0;
+}
+
+.intro-block p {
+  font-size: 1rem;
+  color: var(--teal);
+  line-height: 1.85;
+  font-weight: 400;
+}
+
+.intro-block p strong {
+  font-weight: 700;
+  color: var(--teal);
+}
+
+/* ── SECTION HEADERS ── */
+.section-block {
+  margin-bottom: 48px;
+}
+
+.section-label {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 20px;
+}
+
+.section-num {
+  font-family: 'Raleway', sans-serif;
+  font-weight: 900;
+  font-size: 1.6rem;
+  line-height: 1;
+  color: var(--teal);
+  min-width: 36px;
+}
+
+.section-title {
+  font-family: 'Raleway', sans-serif;
+  font-weight: 800;
+  font-size: 1.15rem;
+  color: var(--teal);
+  line-height: 1.2;
+}
+
+.section-divider {
+  flex: 1;
+  height: 2px;
+  background: linear-gradient(to right, var(--border), transparent);
+  margin-left: 8px;
+}
+
+/* ── ITENS ── */
+
+/* Item padrão: linha horizontal */
+.item-row {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 24px;
+  padding: 20px 0;
+  border-bottom: 1px solid var(--border);
+}
+.item-row:first-child { border-top: 1px solid var(--border); }
+
+.item-left {}
+
+.item-name {
+  font-family: 'Raleway', sans-serif;
+  font-weight: 700;
+  font-size: .98rem;
+  color: var(--text);
+  margin-bottom: 4px;
+}
+
+.item-desc {
+  font-size: .82rem;
+  color: var(--muted);
+  line-height: 1.6;
+  font-weight: 300;
+  max-width: 460px;
+}
+
+.item-price {
+  font-family: 'Raleway', sans-serif;
+  font-weight: 900;
+  font-size: 1.15rem;
+  color: var(--teal);
+  white-space: nowrap;
+  flex-shrink: 0;
+  letter-spacing: -.01em;
+}
+
+.item-price small {
+  display: block;
+  font-size: .65rem;
+  font-weight: 600;
+  color: var(--muted);
+  letter-spacing: .08em;
+  text-transform: uppercase;
+  text-align: right;
+  margin-top: 2px;
+}
+
+/* Tag de destaque */
+.tag {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  font-family: 'Raleway', sans-serif;
+  font-weight: 700;
+  font-size: .62rem;
+  letter-spacing: .1em;
+  text-transform: uppercase;
+  padding: 3px 10px;
+  border-radius: 20px;
+  margin-left: 8px;
+  vertical-align: middle;
+}
+.tag-teal    { background: var(--teal3); color: var(--teal); }
+.tag-orange  { background: var(--orange3); color: var(--orange); }
+.tag-blue    { background: var(--blue3); color: var(--blue); }
+
+/* ── CARD DE DESTAQUE (Produção Geral) ── */
+.highlight-card {
+  background: linear-gradient(135deg, #0d3830 0%, #1a5c52 60%, #1e6b60 100%);
+  border-radius: 10px;
+  overflow: hidden;
+  margin-bottom: 48px;
+  position: relative;
+}
+
+.highlight-card::before {
+  content: '';
+  position: absolute; inset: 0;
+  background-image:
+    linear-gradient(rgba(255,255,255,.03) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255,255,255,.03) 1px, transparent 1px);
+  background-size: 32px 32px;
+}
+
+.hc-top-bar {
+  height: 5px;
+  background: linear-gradient(90deg, var(--orange), var(--orange2));
+}
+
+.hc-inner {
+  position: relative; z-index: 1;
+  padding: 32px 36px;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 24px;
+}
+
+.hc-left {}
+
+.hc-eyebrow {
+  font-family: 'Raleway', sans-serif;
+  font-weight: 700;
+  font-size: .65rem;
+  letter-spacing: .18em;
+  text-transform: uppercase;
+  color: rgba(255,255,255,.5);
+  margin-bottom: 6px;
+}
+
+.hc-title {
+  font-family: 'Raleway', sans-serif;
+  font-weight: 900;
+  font-size: 1.4rem;
+  color: white;
+  margin-bottom: 16px;
+  letter-spacing: -.02em;
+  line-height: 1.2;
+}
+
+.hc-includes {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.hc-includes li {
+  display: flex;
+  gap: 10px;
+  font-size: .82rem;
+  color: rgba(255,255,255,.75);
+  line-height: 1.5;
+  font-weight: 300;
+}
+
+.hc-includes li::before {
+  content: '';
+  width: 8px; height: 8px;
+  border-radius: 1px;
+  background: var(--orange2);
+  flex-shrink: 0;
+  margin-top: 4px;
+}
+
+.hc-price-block {
+  text-align: right;
+  flex-shrink: 0;
+}
+
+.hc-price-label {
+  font-size: .62rem;
+  font-weight: 700;
+  letter-spacing: .12em;
+  text-transform: uppercase;
+  color: rgba(255,255,255,.5);
+  margin-bottom: 6px;
+}
+
+.hc-price {
+  font-family: 'Raleway', sans-serif;
+  font-weight: 900;
+  font-size: 2.8rem;
+  color: white;
+  line-height: 1;
+  letter-spacing: -.03em;
+}
+
+.hc-price sup {
+  font-size: 1.2rem;
+  vertical-align: super;
+  line-height: 0;
+  font-weight: 700;
+}
+
+/* ── CARD COM FUNDO AZUL (Ads) ── */
+.blue-card {
+  background: var(--blue);
+  border-radius: 10px;
+  overflow: hidden;
+  margin-bottom: 48px;
+}
+
+.bc-top-bar {
+  height: 5px;
+  background: linear-gradient(90deg, var(--blue2), #7090d0);
+}
+
+.bc-inner {
+  padding: 28px 32px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 24px;
+}
+
+.bc-left {}
+.bc-eyebrow {
+  font-size: .62rem;
+  font-weight: 700;
+  letter-spacing: .15em;
+  text-transform: uppercase;
+  color: rgba(255,255,255,.5);
+  margin-bottom: 4px;
+}
+.bc-title {
+  font-family: 'Raleway', sans-serif;
+  font-weight: 800;
+  font-size: 1.1rem;
+  color: white;
+  margin-bottom: 8px;
+}
+.bc-desc {
+  font-size: .8rem;
+  color: rgba(255,255,255,.65);
+  font-weight: 300;
+  line-height: 1.6;
+}
+
+.bc-price-block { text-align: right; flex-shrink: 0; }
+.bc-price-main {
+  font-family: 'Raleway', sans-serif;
+  font-weight: 900;
+  font-size: 1.8rem;
+  color: white;
+  letter-spacing: -.02em;
+  line-height: 1;
+}
+.bc-price-extra {
+  font-size: .72rem;
+  color: rgba(255,255,255,.6);
+  margin-top: 4px;
+  line-height: 1.5;
+}
+.bc-price-extra strong { color: rgba(255,255,255,.9); }
+
+/* ── CARD SEM PREÇO (Gravação) ── */
+.open-card {
+  background: var(--off);
+  border: 2px dashed var(--border);
+  border-radius: 10px;
+  padding: 28px 32px;
+  margin-bottom: 48px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 24px;
+}
+
+.oc-left {}
+.oc-eyebrow {
+  font-size: .62rem; font-weight: 700; letter-spacing: .15em;
+  text-transform: uppercase; color: var(--muted); margin-bottom: 4px;
+}
+.oc-title {
+  font-family: 'Raleway', sans-serif; font-weight: 800;
+  font-size: 1.1rem; color: var(--text); margin-bottom: 6px;
+}
+.oc-desc { font-size: .82rem; color: var(--muted); font-weight: 300; line-height: 1.6; }
+
+.oc-badge {
+  background: var(--teal3);
+  border: 1.5px solid var(--teal);
+  border-radius: 8px;
+  padding: 14px 20px;
+  text-align: center;
+  flex-shrink: 0;
+}
+.oc-badge strong {
+  display: block;
+  font-family: 'Raleway', sans-serif;
+  font-weight: 800;
+  font-size: .82rem;
+  color: var(--teal);
+  line-height: 1.3;
+}
+.oc-badge span {
+  font-size: .68rem; color: var(--muted); font-weight: 300;
+}
+
+/* ── COMBOS / PACOTES ── */
+.combos-section {
+  background: var(--teal4);
+  border-radius: 12px;
+  padding: 36px;
+  margin-bottom: 48px;
+  border: 1.5px solid var(--teal3);
+}
+
+.combos-title {
+  font-family: 'Raleway', sans-serif;
+  font-weight: 900;
+  font-size: 1.3rem;
+  color: var(--teal);
+  margin-bottom: 6px;
+  letter-spacing: -.02em;
+}
+
+.combos-sub {
+  font-size: .82rem;
+  color: var(--muted);
+  margin-bottom: 28px;
+  font-weight: 300;
+}
+
+.combo-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+}
+
+.combo-card {
+  background: white;
+  border-radius: 8px;
+  overflow: hidden;
+  border: 2px solid var(--border);
+  transition: border-color .2s;
+}
+
+.combo-card.featured { border-color: var(--orange); }
+
+.combo-head {
+  padding: 14px 18px;
+  background: var(--teal);
+}
+.combo-card.featured .combo-head { background: var(--orange); }
+
+.combo-num {
+  font-size: .6rem; font-weight: 800;
+  letter-spacing: .15em; text-transform: uppercase;
+  color: rgba(255,255,255,.6); margin-bottom: 3px;
+}
+.combo-name {
+  font-family: 'Raleway', sans-serif; font-weight: 800;
+  font-size: .92rem; color: white; line-height: 1.2;
+}
+
+.combo-body { padding: 16px 18px; }
+
+.combo-items {
+  list-style: none;
+  display: flex; flex-direction: column; gap: 5px;
+  margin-bottom: 14px;
+}
+.combo-items li {
+  font-size: .75rem; color: var(--muted);
+  display: flex; gap: 7px; align-items: flex-start;
+  font-weight: 300;
+}
+.combo-items li::before {
+  content: '';
+  width: 6px; height: 6px; border-radius: 1px;
+  flex-shrink: 0; margin-top: 5px;
+}
+.combo-card .combo-items li::before { background: var(--teal); }
+.combo-card.featured .combo-items li::before { background: var(--orange); }
+
+.combo-total-label { font-size: .62rem; color: var(--muted); font-weight: 600; letter-spacing: .08em; text-transform: uppercase; }
+.combo-total { font-family: 'Raleway', sans-serif; font-weight: 900; font-size: 1.3rem; color: var(--teal); letter-spacing: -.02em; }
+.combo-card.featured .combo-total { color: var(--orange); }
+
+.combo-economy {
+  display: inline-flex; align-items: center; gap: 5px;
+  background: var(--orange3); border-radius: 20px; padding: 3px 10px;
+  font-size: .62rem; font-weight: 700; color: var(--orange);
+  letter-spacing: .06em; text-transform: uppercase; margin-top: 4px;
+}
+
+/* ── TOTAL ── */
+.total-section {
+  margin-bottom: 48px;
+}
+
+.total-card {
+  background: linear-gradient(135deg, var(--teal) 0%, #1e6b60 100%);
+  border-radius: 12px;
+  overflow: hidden;
+}
+
+.total-bar { height: 5px; background: linear-gradient(90deg, var(--orange), var(--orange2)); }
+
+.total-inner {
+  padding: 36px 40px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 24px;
+}
+
+.total-label {
+  font-family: 'Raleway', sans-serif;
+  font-weight: 300;
+  font-size: 1rem;
+  color: rgba(255,255,255,.7);
+  margin-bottom: 4px;
+}
+
+.total-value {
+  font-family: 'Raleway', sans-serif;
+  font-weight: 900;
+  font-size: 3rem;
+  color: white;
+  letter-spacing: -.04em;
+  line-height: 1;
+}
+
+.total-value sup { font-size: 1.4rem; vertical-align: super; line-height: 0; font-weight: 700; }
+
+.total-note {
+  font-size: .75rem;
+  color: rgba(255,255,255,.5);
+  margin-top: 6px;
+  font-weight: 300;
+}
+
+.total-right { text-align: right; }
+
+.total-right p {
+  font-size: .78rem;
+  color: rgba(255,255,255,.6);
+  line-height: 1.7;
+  font-weight: 300;
+}
+
+.total-right strong { color: rgba(255,255,255,.9); font-weight: 700; }
+
+/* ── CONDIÇÕES ── */
+.conditions-section {
+  background: var(--off);
+  border-radius: 10px;
+  padding: 32px 36px;
+  margin-bottom: 48px;
+  border: 1.5px solid var(--border);
+}
+
+.conditions-title {
+  font-family: 'Raleway', sans-serif;
+  font-weight: 800;
+  font-size: 1rem;
+  color: var(--teal);
+  margin-bottom: 16px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.conditions-title::before {
+  content: '';
+  width: 20px; height: 3px;
+  background: var(--orange);
+  border-radius: 2px;
+}
+
+.cond-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+}
+
+.cond-item {
+  display: flex;
+  gap: 12px;
+  align-items: flex-start;
+}
+
+.cond-sq {
+  width: 10px; height: 10px;
+  border-radius: 2px;
+  flex-shrink: 0;
+  margin-top: 4px;
+}
+.cs-t { background: var(--teal); }
+.cs-o { background: var(--orange); }
+.cs-b { background: var(--blue); }
+
+.cond-item h4 {
+  font-family: 'Raleway', sans-serif;
+  font-weight: 700;
+  font-size: .82rem;
+  color: var(--text);
+  margin-bottom: 2px;
+}
+
+.cond-item p {
+  font-size: .76rem;
+  color: var(--muted);
+  line-height: 1.6;
+  font-weight: 300;
+}
+
+/* ── RODAPÉ ── */
+.doc-footer {
+  background: #0d1a18;
+  padding: 36px 56px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 16px;
+}
+
+.footer-brand {
+  display: flex; align-items: center; gap: 12px;
+}
+.footer-sq {
+  display: grid; grid-template-columns: 1fr 1fr; gap: 3px; width: 20px;
+}
+.footer-sq span { display: block; height: 9px; border-radius: 1px; }
+.footer-sq span:nth-child(1) { background: var(--teal2); }
+.footer-sq span:nth-child(2) { background: var(--orange); }
+.footer-sq span:nth-child(3) { background: var(--blue2); }
+.footer-sq span:nth-child(4) { background: rgba(255,255,255,.3); }
+
+.footer-name {
+  font-family: 'Raleway', sans-serif;
+  font-weight: 700;
+  font-size: .8rem;
+  color: rgba(255,255,255,.6);
+  line-height: 1.4;
+}
+.footer-name small {
+  display: block; font-weight: 300; font-size: .68rem; color: rgba(255,255,255,.35);
+}
+
+.footer-contact {
+  text-align: right;
+  font-size: .72rem;
+  color: rgba(255,255,255,.4);
+  line-height: 1.7;
+  font-weight: 300;
+}
+.footer-contact strong { color: rgba(255,255,255,.7); font-weight: 600; }
+
+/* ── PRINT ── */
+@media print {
+  body { background: white; }
+  .page { box-shadow: none; max-width: 100%; }
+  .highlight-card, .blue-card, .total-card { -webkit-print-color-adjust: exact; }
+}
+
+@media (max-width: 680px) {
+  .cover-inner { padding: 32px 24px 36px; }
+  .cover-header { flex-direction: column; gap: 16px; }
+  .cover-meta { text-align: left; }
+  .doc-body { padding: 36px 24px; }
+  .hc-inner { flex-direction: column; }
+  .hc-price-block { text-align: left; }
+  .bc-inner { flex-direction: column; align-items: flex-start; }
+  .bc-price-block { text-align: left; }
+  .combo-grid { grid-template-columns: 1fr; }
+  .cond-grid { grid-template-columns: 1fr; }
+  .total-inner { flex-direction: column; align-items: flex-start; }
+  .total-right { text-align: left; }
+  .doc-footer { flex-direction: column; padding: 28px 24px; }
+  .footer-contact { text-align: left; }
+  .open-card { flex-direction: column; }
+}
+</style>
+</head>
+<body>
+<div class="page">
+
+  <!-- ═══ CAPA ═══ -->
+  <div class="cover">
+    <div class="cover-topbar"></div>
+    <div class="cover-shape1"></div>
+    <div class="cover-shape2"></div>
+    <div class="cover-shape3"></div>
+
+    <div class="cover-inner">
+      <div class="cover-header">
+        <div class="brand-mark">
+          <div class="brand-squares">
+            <span class="bs1"></span><span class="bs2"></span>
+            <span class="bs3"></span><span class="bs4"></span>
+          </div>
+          <div class="brand-name"></div>
+        </div>
+        <div class="cover-meta">
+          <p><strong>Proposta Nº</strong> 2025-AK-01</p>
+          <p><strong>Data:</strong> Abril de 2025</p>
+          <p><strong>Validade:</strong> 7 dias</p>
+        </div>
+      </div>
+
+      <div class="cover-title-block">
+        <div class="cover-eyebrow">Proposta Comercial</div>
+        <div class="cover-title">Curso Online<br>Dr. Kaup</div>
+        <div class="cover-title-sub">Cannabis Medicinal &amp; Neurologia</div>
+      </div>
+
+      <div class="cover-footer">
+        <div class="cover-client">
+          <span>Preparado para</span>
+          <strong>Dr. Alexandre Ottoni Kaup</strong>
+          <span>Neurologista · Hospital Albert Einstein</span>
+        </div>
+        <div class="cover-validity">Válida por 30 dias</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Barra de cores -->
+  <div class="color-band">
+    <span class="cb1"></span><span class="cb2"></span>
+    <span class="cb3"></span><span class="cb4"></span>
+  </div>
+
+  <!-- ═══ CORPO ═══ -->
+  <div class="doc-body">
+
+    <!-- Intro -->
+    <div class="intro-block">
+      <p>
+        Dr. Kaup, esta proposta foi estruturada para cobrir <strong>todos os entregáveis necessários</strong> ao lançamento do seu curso online — da identidade digital ao tráfego pago. Cada item pode ser contratado individualmente ou em conjunto, com condições especiais para pacotes completos.
+      </p>
+    </div>
+
+    <!-- ── BLOCO 1: DIGITAL ── -->
+    <div class="section-block">
+      <div class="section-label">
+        <div class="section-num">01</div>
+        <div class="section-title">Presença Digital <span class="tag tag-teal">Web</span></div>
+        <div class="section-divider"></div>
+      </div>
+
+      <div class="item-row">
+        <div class="item-left">
+          <div class="item-name">Site Dr. Kaup + Landing Page do Curso <span class="tag tag-teal">2 domínios</span></div>
+          <div class="item-desc">Site institucional completo do Dr. Kaup (autoridade médica, bio, contato) + landing page dedicada ao curso — dois domínios separados, com identidade visual consistente, otimização mobile e integração com Hotmart.</div>
+        </div>
+        <div class="item-price">
+          R$&nbsp;6.500
+          <small>entrega única</small>
+        </div>
+      </div>
+
+      <div class="item-row">
+        <div class="item-left">
+          <div class="item-name">Landing Page do Curso <span class="tag tag-orange">Somente LP</span></div>
+          <div class="item-desc">Landing page dedicada ao curso, otimizada para conversão — sem o site institucional. Design premium com visual aprovado, seções de vídeo, módulos, precificação e CTA direto para Hotmart.</div>
+        </div>
+        <div class="item-price">
+          R$&nbsp;3.800
+          <small>entrega única</small>
+        </div>
+      </div>
+    </div>
+
+    <!-- ── BLOCO 2: CONTEÚDO ── -->
+    <div class="section-block">
+      <div class="section-label">
+        <div class="section-num">02</div>
+        <div class="section-title">Materiais de Conteúdo <span class="tag tag-orange">Conteúdo</span></div>
+        <div class="section-divider"></div>
+      </div>
+
+      <div class="item-row">
+        <div class="item-left">
+          <div class="item-name">E-book da Aula</div>
+          <div class="item-desc">Texto transcrito e editado de uma aula, complementado com ilustrações cedidas — até 30 páginas. Entregue em PDF com diagramação alinhada à identidade visual do curso.</div>
+        </div>
+        <div class="item-price">
+          R$&nbsp;1.800
+          <small>por aula / até 30 pgs</small>
+        </div>
+      </div>
+
+      <div class="item-row">
+        <div class="item-left">
+          <div class="item-name">Apresentação em PowerPoint</div>
+          <div class="item-desc">Redesign ou criação de apresentação com até 40 slides — aplicando a identidade visual do curso (paleta teal/laranja/azul, tipografia Raleway, layouts modernos e dinâmicos).</div>
+        </div>
+        <div class="item-price">
+          R$&nbsp;2.400
+          <small>até 40 slides</small>
+        </div>
+      </div>
+    </div>
+
+    <!-- ── BLOCO 3: FOTO E VÍDEO ── -->
+    <div class="section-block">
+      <div class="section-label">
+        <div class="section-num">03</div>
+        <div class="section-title">Imagem e Audiovisual <span class="tag tag-blue">Produção</span></div>
+        <div class="section-divider"></div>
+      </div>
+
+      <div class="item-row">
+        <div class="item-left">
+          <div class="item-name">Ensaio Fotográfico &amp; Vídeo de Divulgação</div>
+          <div class="item-desc">Captação profissional de fotos e vídeos para uso nos materiais digitais e redes sociais — headshots de autoridade médica, imagens de consultório e clipes para reels/stories. Inclui edição básica do material.</div>
+        </div>
+        <div class="item-price">
+          R$&nbsp;2.950
+          <small>diária + edição</small>
+        </div>
+      </div>
+    </div>
+
+    <!-- ── BLOCO 4: PRODUÇÃO GERAL (card destaque) ── -->
+    <div class="section-block">
+      <div class="section-label">
+        <div class="section-num">04</div>
+        <div class="section-title">Direção &amp; Produção Geral <span class="tag tag-orange">Gestão total</span></div>
+        <div class="section-divider"></div>
+      </div>
+
+      <div class="highlight-card">
+        <div class="hc-top-bar"></div>
+        <div class="hc-inner">
+          <div class="hc-left">
+            <div class="hc-eyebrow">Entregável completo · Até 10 aulas em 1 diária de gravação</div>
+            <div class="hc-title">Direção e Produção<br>Geral do Curso</div>
+            <ul class="hc-includes">
+              <li>Roteirização completa do conteúdo das aulas</li>
+              <li>Produção artística na diária de gravação (direção criativa, figurino, mise-en-scène)</li>
+              <li>Condução da edição final de todas as aulas</li>
+              <li>Validação de todo o material produzido</li>
+              <li>Configuração da página do curso na Hotmart</li>
+            </ul>
+          </div>
+          <div class="hc-price-block">
+            <div class="hc-price-label">Investimento</div>
+            <div class="hc-price"><sup>R$</sup>6.200</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ── BLOCO 5: META ADS (card azul) ── -->
+    <div class="section-block">
+      <div class="section-label">
+        <div class="section-num">05</div>
+        <div class="section-title">Tráfego Pago <span class="tag tag-blue">Mensal</span></div>
+        <div class="section-divider"></div>
+      </div>
+
+      <div class="blue-card">
+        <div class="bc-top-bar"></div>
+        <div class="bc-inner">
+          <div class="bc-left">
+            <div class="bc-eyebrow">Recorrente</div>
+            <div class="bc-title">Meta Ads — Facebook &amp; Instagram</div>
+            <div class="bc-desc">Gestão mensal de campanhas no Meta (Facebook &amp; Instagram) — estratégia, criação de públicos, otimização e relatórios. Verba de mídia cobrada separadamente conforme orçamento aprovado.</div>
+          </div>
+          <div class="bc-price-block">
+            <div class="bc-price-main">R$&nbsp;660<span style="font-size:1rem;font-weight:400">/mês</span></div>
+            <div class="bc-price-extra">+ verba de mídia:<br><strong>até R$ 1.000/mês</strong></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ── BLOCO 6: GRAVAÇÃO ── -->
+    <div class="section-block">
+      <div class="section-label">
+        <div class="section-num">06</div>
+        <div class="section-title">Gravação das Aulas <span class="tag tag-teal">A orçar</span></div>
+        <div class="section-divider"></div>
+      </div>
+
+      <div class="open-card">
+        <div class="oc-left">
+          <div class="oc-eyebrow">Estúdio de captação · Pós-produção</div>
+          <div class="oc-title">Gravação Profissional das Aulas</div>
+          <div class="oc-desc">Captação em estúdio com estrutura técnica completa (câmera, iluminação, som) + edição final de cada aula com vinhetas, lower thirds, cortes e ajustes de cor/áudio. Valor varia conforme número de aulas e complexidade da edição.</div>
+        </div>
+        <div class="oc-badge">
+          <strong>Orçamento<br>sob consulta</strong>
+          <span>Conforme escopo</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- ── COMBOS SUGERIDOS ── -->
+    <div class="combos-section">
+      <div class="combos-title">💡 Pacotes Sugeridos</div>
+      <div class="combos-sub">Combinações estratégicas com economia real — para quem quer escalar mais rápido.</div>
+
+      <div class="combo-grid">
+        <div class="combo-card">
+          <div class="combo-head">
+            <div class="combo-num">Pacote Essencial</div>
+            <div class="combo-name">Lançamento Rápido</div>
+          </div>
+          <div class="combo-body">
+            <ul class="combo-items">
+              <li>Landing Page do Curso (R$ 3.800)</li>
+              <li>Ensaio Foto &amp; Vídeo (R$ 2.950)</li>
+              <li>Direção &amp; Produção Geral (R$ 6.200)</li>
+            </ul>
+            <div class="combo-total-label">Total do pacote</div>
+            <div class="combo-total">R$&nbsp;13.950 <span style="font-size:.7rem;font-weight:400;color:var(--muted)">à vista</span></div>
+          </div>
+        </div>
+
+        <div class="combo-card featured">
+          <div class="combo-head">
+            <div class="combo-num">Pacote Completo ⭐</div>
+            <div class="combo-name">Autoridade Total</div>
+          </div>
+          <div class="combo-body">
+            <ul class="combo-items">
+              <li>Site + Landing Page (R$ 6.500)</li>
+              <li>E-book (R$ 1.800)</li>
+              <li>PPT Redesign (R$ 2.400)</li>
+              <li>Foto &amp; Vídeo (R$ 2.950)</li>
+              <li>Direção &amp; Produção Geral (R$ 6.200)</li>
+            </ul>
+            <div class="combo-total-label">Total do pacote</div>
+            <div class="combo-total">R$&nbsp;19.850 <span style="font-size:.7rem;font-weight:400;color:var(--muted)">à vista</span></div>
+            <div class="combo-economy">✦ + Meta Ads mensal disponível</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ── CONDIÇÕES ── -->
+    <div class="conditions-section">
+      <div class="conditions-title">Condições Comerciais</div>
+      <div class="cond-grid">
+        <div class="cond-item">
+          <div class="cond-sq cs-t"></div>
+          <div>
+            <h4>Forma de pagamento</h4>
+            <p>50% na assinatura do contrato · 50% na entrega final. Considerar desconto a vista.</p>
+          </div>
+        </div>
+        <div class="cond-item">
+          <div class="cond-sq cs-o"></div>
+          <div>
+            <h4>Prazo de entrega</h4>
+            <p>A definir (previsão de lançamento início do segundo semestre)</p>
+          </div>
+        </div>
+        <div class="cond-item">
+          <div class="cond-sq cs-b"></div>
+          <div>
+            <h4>Revisões inclusas</h4>
+            <p>Até 2 rodadas de revisão por entregável. Alterações adicionais cobradas por hora.</p>
+          </div>
+        </div>
+        <div class="cond-item">
+          <div class="cond-sq cs-t"></div>
+          <div>
+            <h4>Validade da proposta</h4>
+            <p>Esta proposta é válida por 7 dias a partir da data de emissão. Valores sujeitos a reajuste após este prazo.</p>
+          </div>
+        </div>
+        <div class="cond-item">
+          <div class="cond-sq cs-o"></div>
+          <div>
+            <h4>Meta Ads</h4>
+            <p>Contrato mensal com 30 dias de aviso prévio para cancelamento.</p>
+          </div>
+        </div>
+        <div class="cond-item">
+          <div class="cond-sq cs-b"></div>
+          <div>
+            <h4>Gravação das aulas</h4>
+            <p>Orçamento elaborado após alinhamento do escopo completo (nº de aulas, locação, complexidade de edição).</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ── PRÓXIMOS PASSOS ── -->
+    <div class="total-section">
+      <div class="total-card">
+        <div class="total-bar"></div>
+        <div class="total-inner">
+          <div>
+            <div class="total-label">Próximo passo</div>
+            <div class="total-value" style="font-size:1.8rem;letter-spacing:-.01em">Vamos começar?</div>
+            <div class="total-note">Responda esta proposta pelo WhatsApp ou e-mail — preparamos o contrato em 24h.</div>
+          </div>
+          <div class="total-right">
+            <p>📱 <strong>(11) 97684-8773</strong></p>
+            <p>✉️ <strong>viniciusancetti@gmail.com</strong></p>
+            <p style="margin-top:8px">Escritório de<br>Posicionamento Digital</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div><!-- /doc-body -->
+
+  <!-- ═══ RODAPÉ ═══ -->
+  <div class="doc-footer">
+    <div class="footer-brand">
+      <div class="footer-sq">
+        <span></span><span></span><span></span><span></span>
+      </div>
+      <div class="footer-name">
+        
+        <small>Escritório de Posicionamento Estratégico Digital</small>
+      </div>
+    </div>
+    <div class="footer-contact">
+      <strong>(11) 97684-8773</strong><br>
+      viniciusancetti@gmail.com<br>
+      São Paulo — SP
+    </div>
+  </div>
+
+</div><!-- /page -->
+</body>
+</html>
